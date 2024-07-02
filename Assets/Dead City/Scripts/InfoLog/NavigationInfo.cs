@@ -8,4 +8,13 @@
       * Agent path query - this returns a path (waypoints) that can be traversed. Unity returns a corridor (polygons that can be traversed).
       * Agent path Steering - this moves the agent.
       * Local Avoidance - dynamic objects are to be avoided.
-*/
+
+ * Nowadays a new component for Navmesh is added NavMeshSurface for baking with access to different bake agents.
+ * Bake Process
+  - Baking of Navmesh is a complex process where we first get the voxel data generated for all nav static meshes.
+  - That voxel data is then interpolated to create nav geometry with some approximations and good algos to decide.
+  - Once that is done, we get nav mesh data.
+  - Still one problem lies, that static data is interpolated (kinda), so the agent might seem floating while traversing on y axis in certain areas.
+  - A solution for this is height mesh data, which includes the surface y distance while travesing and can be baked similar to nav mesh.
+
+ */
