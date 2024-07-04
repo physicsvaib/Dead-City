@@ -54,7 +54,17 @@ public class WayPointPathEditor : Editor
   // Use when we need to render on inspector, custom elements and all
   public override void OnInspectorGUI()
   {
-    base.OnInspectorGUI();
+    path = (WayPointPath)target;
+
+    path.mode = (PathDisplayMode)EditorGUILayout.EnumPopup("Desired Mode", path.mode);
+
+    if (path.mode == PathDisplayMode.Paths)
+    {
+      path.PathStart = EditorGUILayout.IntSlider("Start Index", path.PathStart, 0, path.waypoints.Length - 1);
+      path.PathEnd = EditorGUILayout.IntSlider("End Index", path.PathEnd, 0, path.waypoints.Length - 1);
+    }
+
+    DrawDefaultInspector();
   }
 
   private Vector3 GetPosition(int index)
