@@ -16,5 +16,9 @@
   - Once that is done, we get nav mesh data.
   - Still one problem lies, that static data is interpolated (kinda), so the agent might seem floating while traversing on y axis in certain areas.
   - A solution for this is height mesh data, which includes the surface y distance while travesing and can be baked similar to nav mesh.
+
+ * Agent has a steering target which is the next point the agent is trying to reach good for debugging.
+ * It has a desired velocity which is what it wants, not neccesarily get it.
+
  * Changing navmesh agent properties (Obstacle Avoidance) mostly are for local avoidance not much related to the baked navmesh.
  */
